@@ -30,13 +30,6 @@ git clone https://github.com/jkf87/aiicon.git ~/.claude/skills/aiicon
 이후 Claude Code를 재시작하거나 `/reload-plugins`를 실행합니다. 호출은
 `/aiicon <주제>` 또는 자연어("AAICon 초록 docx 만들어줘")로 가능.
 
-> **원클릭 설치?** Claude Code에는 user-level 스킬용 URL 스킴이나
-> 마켓플레이스 엔트리가 **현재 제공되지 않습니다**(2026-04 기준). 위
-> 한 줄이 정식 설치 경로입니다. `/plugin install` 흐름을 원하시면
-> 스킬을 플러그인으로 재패키징해야 하는데, 호출 명령이
-> `/aiicon:aiicon`로 네임스페이스되어 UX가 나빠집니다. 필요하시면
-> 이슈를 열어주세요.
-
 ### 필수 환경
 
 - Python 3.10+ / `python-docx` / `pyyaml`:
@@ -160,13 +153,6 @@ git clone https://github.com/jkf87/aiicon.git ~/.claude/skills/aiicon
 
 Then restart Claude Code (or run `/reload-plugins`). Invoke with
 `/aiicon <topic>` or ask naturally — e.g. "AAICon 초록 docx 만들어줘".
-
-> **One-click install?** Claude Code does not currently ship a URL
-> scheme or marketplace entry for user-level skills (as of 2026-04).
-> The command above is the canonical install path. If you prefer the
-> `/plugin install` flow, the skill would need to be repackaged as a
-> plugin — at the cost of a namespaced command (`/aiicon:aiicon`
-> instead of `/aiicon`). Open an issue if you want that variant.
 
 ### Requirements
 
