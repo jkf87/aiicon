@@ -7,17 +7,38 @@ OpenAI Codex CLI's `image_generation` tool.
 Bundled with the **AAICon 2026** template, but works with any template
 that shares the same 4-row title table + 2-row figure table layout.
 
+## In use
+
+Invoke `/aiicon` with a research topic — the skill prompts for the
+missing fields, then produces a filled `.docx`. Below: a quantitative
+study on teacher stress from parent complaints (N=130, Likert) run
+end-to-end.
+
+**1. Invocation and clarifying questions**
+
+![Invocation flow — the skill asks for data, authors, tag, and figure mode, accepts a one-line data summary, and proposes defaults](assets/screenshots/invocation.png)
+
+**2. Rendered one-page output**
+
+![Rendered AAICon one-page abstract with title, authors, 요약 body, and Codex-generated bar chart](assets/screenshots/output.png)
 
 ## Install
 
-Clone into your Claude Code skills directory:
+**One command:**
 
 ```bash
 git clone https://github.com/jkf87/aiicon.git ~/.claude/skills/aiicon
 ```
 
-Claude Code auto-discovers the skill on next launch. Invoke with
-`/aiicon` or by asking naturally — e.g. "AAICon 초록 docx 만들어줘".
+Then restart Claude Code (or run `/reload-plugins`). Invoke with
+`/aiicon <주제>` or ask naturally — e.g. "AAICon 초록 docx 만들어줘".
+
+> **One-click install?** Claude Code does not currently ship a URL
+> scheme or marketplace entry for user-level skills (as of 2026-04).
+> The command above is the canonical install path. If you prefer the
+> `/plugin install` flow, the skill would need to be repackaged as a
+> plugin — at the cost of a namespaced command (`/aiicon:aiicon`
+> instead of `/aiicon`). Open an issue if you want that variant.
 
 ### Requirements
 
