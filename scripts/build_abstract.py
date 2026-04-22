@@ -405,6 +405,45 @@ def build(config_path: Path, out_path: Path, template_path: Path):
         if guide_idx < len(doc.tables):
             delete_table(doc.tables[guide_idx])
 
+    # ---- Strip trailing empty paragraphs to prevent orphan pages ----
+    # The AAICon template ships with a few empty paragraphs after the
+    # (now removed) guidelines table. Word keeps at least one final
+    # paragraph in the body, so we leave a single empty one.
+    body = doc.element.body
+    while True:
+        children = list(body.iterchildren())
+        if len(children) <= 1:
+            break
+        last = children[-1]
+        if not last.tag.endswith("}p"):
+            break
+        has_text = any((t.text or "").strip() for t in last.iter(qn("w:t")))
+        if has_text:
+            break
+        # Also treat paragraphs containing images / drawings as non-empty
+        if list(last.iter(qn("w:drawing"))) or list(last.iter(qn("w:pict"))):
+            break
+        # Stop before the second-to-last so Word always has a trailing paragraph
+        penult = children[-2]
+        body.remove(last)
+        if penult.tag.endswith("}tbl"):
+            # After removing a trailing empty paragraph that followed a table,
+            # Word *requires* a paragraph after a table. Re-add a minimal one
+            # that is as short as possible (2pt font, exact 2pt line, 0 before/after)
+            # so it does not push content to a second page.
+            anchor = OxmlElement("w:p")
+            pPr = OxmlElement("w:pPr")
+            spacing = OxmlElement("w:spacing")
+            spacing.set(qn("w:line"), "40"); spacing.set(qn("w:lineRule"), "exact")
+            spacing.set(qn("w:before"), "0"); spacing.set(qn("w:after"), "0")
+            pPr.append(spacing)
+            rPr = OxmlElement("w:rPr")
+            sz = OxmlElement("w:sz"); sz.set(qn("w:val"), "4"); rPr.append(sz)
+            pPr.append(rPr)
+            anchor.append(pPr)
+            body.append(anchor)
+            break
+
     out_path.parent.mkdir(parents=True, exist_ok=True)
     doc.save(str(out_path))
     print(f"Saved: {out_path}  ({out_path.stat().st_size:,} bytes)")
