@@ -1,5 +1,5 @@
 ---
-name: aiicon
+name: aaicon
 description: Fill a Korean-conference one-page abstract template (.docx) with title, authors, body text, and a figure. Use when the user asks to generate/build/fill/produce/edit an 학회 abstract, 초록, AAICon, AI Friends Conference, 에이아이프렌즈 abstract, or any one-page Korean academic abstract that needs a .docx output with an embedded figure. The skill bundles the AAICon 2026 template and a builder script; it supports custom templates that follow the same 4-row title table + figure table structure. Output is a filled .docx plus an optional PDF preview checked for the 1-page constraint.
 ---
 

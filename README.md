@@ -1,4 +1,4 @@
-# aiicon — AAICon 1페이지 초록용 Claude Code 스킬
+# aaicon — AAICon 1페이지 초록용 Claude Code 스킬
 
 한국어 학술대회 1페이지 초록 템플릿(`.docx`)에 제목·저자·본문·그림을
 채워 넣습니다. **AAICon 2026** 공식 템플릿이 기본 포함되어 있으며, 제목
@@ -7,7 +7,7 @@
 
 ## 사용 모습
 
-`/aiicon <주제>`로 호출하면 스킬이 빠진 항목을 질문하고, 1페이지
+`/aaicon <주제>`로 호출하면 스킬이 빠진 항목을 질문하고, 1페이지
 `.docx`를 생성합니다. 아래 예시: 학부모 민원으로 인한 교사 스트레스
 양적 연구(N=130, 리커트).
 
@@ -24,11 +24,11 @@
 **한 줄 설치:**
 
 ```bash
-git clone https://github.com/jkf87/aiicon.git ~/.claude/skills/aiicon
+git clone https://github.com/jkf87/aaicon.git ~/.claude/skills/aaicon
 ```
 
 이후 Claude Code를 재시작하거나 `/reload-plugins`를 실행합니다. 호출은
-`/aiicon <주제>` 또는 자연어("AAICon 초록 docx 만들어줘")로 가능.
+`/aaicon <주제>` 또는 자연어("AAICon 초록 docx 만들어줘")로 가능.
 
 ### 필수 환경
 
@@ -79,7 +79,7 @@ figure:
 ## 저장소 구조
 
 ```
-aiicon/
+aaicon/
 ├── SKILL.md                        Claude 로더 진입점
 ├── README.md                       현재 파일
 ├── LICENSE
@@ -119,7 +119,7 @@ MIT — [LICENSE](LICENSE) 참조.
 <details>
 <summary><strong>English README (click to expand)</strong></summary>
 
-# aiicon — Claude Code skill for AAICon 1-page abstracts
+# aaicon — Claude Code skill for AAICon 1-page abstracts
 
 Fill a Korean-conference one-page abstract template (`.docx`) with title,
 authors, body, and a figure. Optionally auto-generate the figure via the
@@ -130,7 +130,7 @@ that shares the same 4-row title table + 2-row figure table layout.
 
 ## In use
 
-Invoke `/aiicon` with a research topic — the skill prompts for the
+Invoke `/aaicon` with a research topic — the skill prompts for the
 missing fields, then produces a filled `.docx`. Example below: a
 quantitative study on teacher stress from parent complaints (N=130,
 Likert) run end-to-end.
@@ -148,11 +148,11 @@ Likert) run end-to-end.
 **One command:**
 
 ```bash
-git clone https://github.com/jkf87/aiicon.git ~/.claude/skills/aiicon
+git clone https://github.com/jkf87/aaicon.git ~/.claude/skills/aaicon
 ```
 
 Then restart Claude Code (or run `/reload-plugins`). Invoke with
-`/aiicon <topic>` or ask naturally — e.g. "AAICon 초록 docx 만들어줘".
+`/aaicon <topic>` or ask naturally — e.g. "AAICon 초록 docx 만들어줘".
 
 ### Requirements
 
@@ -205,7 +205,7 @@ PNG from the JSONL stream, and caches it next to your config. See
 ## Repository layout
 
 ```
-aiicon/
+aaicon/
 ├── SKILL.md                        Claude loader entry
 ├── README.md                       this file
 ├── LICENSE
