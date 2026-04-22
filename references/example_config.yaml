@@ -1,0 +1,36 @@
+# AAICon 2026 example — Paper Loop abstract.
+# Copy this file, edit in place, then:
+#   python scripts/build_abstract.py --config my_config.yaml --out my_abstract.docx
+#   python scripts/render_preview.py my_abstract.docx --png
+
+tag: 구두   # 구두 (oral) / 포스터 (poster)
+
+title_ko: "페이퍼 루프(Paper Loop): 리뷰가 실험을 재설계하는 자기참조 AI-for-Science 하네스"
+title_en: "Paper Loop: A Self-Referential AI-for-Science Harness Where Reviews Re-Design Experiments"
+
+authors_ko:
+  - "한준구†*1"
+  - "1솔밭초등학교"
+  - "jjoongoo@gmail.com"
+
+authors_en:
+  - "Jungu Han†*1"
+  - "1Solbat Elementary School"
+
+body:
+  - |
+    개인 연구자의 병목은 노동량이 아니라 [b]역할 전환 비용과 비판적 자기 검토의 부재[/b]이다. 본 연구는 Claude Code를 오케스트레이터로 삼아 실험 설계·학습·분석·집필·피어 리뷰(리뷰어 3인 + 교신교수 에이전트)를 잇는 [b]5단계 논문 제작 하네스[/b]를 제안한다. 핵심은 [b]리뷰 지적이 단순 글 수정을 넘어 추가 실험으로 번역되어 첫 단계로 재유입되는 자기참조적 수정 사이클[/b]이며, 전원 Accept에 이를 때까지 반복된다(최대 5라운드 상한). 사례 연구로 단일 Apple M4 32GB 노트북에서 한국어 음성 데이터셋 zeroth_korean을 이용해 Whisper Small을 저랭크 적응(LoRA)으로 미세조정하는 랭크 스케일링 실험 [b]11회의 실제 학습/평가를 인간 개입 없이[/b] 자율실행하였고([b]10회가 리뷰에 의해 자동 유발[/b]), 피어 리뷰는 [b]Reject → Weak Accept → Accept[/b]의 3라운드 궤적을 완주하였다. LoRA 미세조정은 CER을 13.18%에서 [b]8.01%(r=64 4시드 평균, 약 39% 상대 감소)[/b]로 낮추었고, r=16과 r=64 비교에서 [b]시드 분산이 랭크에 반비례[/b](r=16 SD 0.48 vs r=64 SD 0.07 %p, [b]6.9×[/b])하는 부수적 과학 관찰까지 산출하였다. 재현성을 위해 [b]학습/평가 코드, 실험 로그, 3라운드 리뷰 이력, 4역할 리뷰어 프롬프트 템플릿(영·한)을 공개[/b]([url=https://github.com/jkf87/paper-loop]github.com/jkf87/paper-loop[/url])한다.
+
+body_size_pt: 9
+body_line_spacing: 1.0
+first_line_indent_mm: 4
+justify: true
+
+figure:
+  image: ../assets/example_figure.jpeg     # swap with your own path
+  caption: "논문 제작 하네스의 구조와 가동 결과. (a) 5단계 파이프라인 및 피드백 루프(붉은 점선). (b) 3라운드 리뷰 판정 수렴 궤적."
+  width_mm: 140
+  caption_size_pt: 8
+  caption_label: "그림 1."
+
+remove_guidelines: true
