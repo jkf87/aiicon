@@ -7,9 +7,6 @@ OpenAI Codex CLI's `image_generation` tool.
 Bundled with the **AAICon 2026** template, but works with any template
 that shares the same 4-row title table + 2-row figure table layout.
 
-<p align="center">
-  <img src="assets/example_figure.jpeg" width="560" alt="Example figure">
-</p>
 
 ## Install
 
